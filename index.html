@@ -12,6 +12,7 @@
             --creative-color: #b7791f;
             --science-color: #2b6cb0;
             --coding-color: #2f855a;
+            --more-color: #6b46c1;
         }
 
         body {
@@ -53,11 +54,12 @@
         .creative-title { border-color: var(--creative-color); color: var(--creative-color); }
         .science-title { border-color: var(--science-color); color: var(--science-color); }
         .coding-title { border-color: var(--coding-color); color: var(--coding-color); }
+        .more-title { border-color: var(--more-color); color: var(--more-color); }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
         }
 
         .kiosk-btn {
@@ -65,12 +67,12 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100px;
-            padding: 15px;
+            min-height: 72px;
+            padding: 10px;
             border-radius: 12px;
             text-decoration: none;
             color: white;
-            font-size: 1.25rem;
+            font-size: 1rem;
             font-weight: bold;
             text-align: center;
             transition: transform 0.1s ease, filter 0.2s ease;
@@ -87,12 +89,13 @@
         .btn-creative { background-color: var(--creative-color); }
         .btn-science { background-color: var(--science-color); }
         .btn-coding { background-color: var(--coding-color); }
+        .btn-more { background-color: var(--more-color); }
 
         .btn-subtitle {
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             font-weight: normal;
             opacity: 0.9;
-            margin-top: 5px;
+            margin-top: 3px;
         }
     </style>
 </head>
@@ -112,7 +115,7 @@
                 Kiddle
                 <span class="btn-subtitle">Visual Search for Kids</span>
             </a>
-            <a href="https://duckduckgo.com" target="_self" class="kiosk-btn btn-search">
+            <a href="https://duckduckgo.com/?kp=1&amp;has_verified_parent=1" target="_self" class="kiosk-btn btn-search">
                 DuckDuckGo
                 <span class="btn-subtitle">Private Web Search</span>
             </a>
@@ -123,11 +126,11 @@
     <div class="category-section">
         <div class="category-title creative-title">🎨 Creativity, Videos & Games</div>
         <div class="grid">
-            <a href="https://youtube.com" target="_self" class="kiosk-btn btn-creative">
+            <a href="https://www.youtube.com/?has_verified_parent=1" target="_self" class="kiosk-btn btn-creative">
                 YouTube Science
                 <span class="btn-subtitle">Curated Science Video Feeds</span>
             </a>
-            <a href="https://chromeexperiments.com" target="_self" class="kiosk-btn btn-creative">
+            <a href="https://musiclab.chromeexperiments.com" target="_self" class="kiosk-btn btn-creative">
                 Chrome Music Lab
                 <span class="btn-subtitle">Sound Wave Experiments</span>
             </a>
@@ -146,7 +149,7 @@
     <div class="category-section">
         <div class="category-title science-title">🧬 Science & Exploration</div>
         <div class="grid">
-            <a href="https://colorado.edu" target="_self" class="kiosk-btn btn-science">
+            <a href="https://phet.colorado.edu" target="_self" class="kiosk-btn btn-science">
                 PhET Simulations
                 <span class="btn-subtitle">Physics & Chemistry Labs</span>
             </a>
@@ -154,15 +157,15 @@
                 Stellarium Star Map
                 <span class="btn-subtitle">3D Space Planetarium</span>
             </a>
-            <a href="https://nasa.gov" target="_self" class="kiosk-btn btn-science">
+            <a href="https://climatekids.nasa.gov" target="_self" class="kiosk-btn btn-science">
                 NASA Climate Kids
                 <span class="btn-subtitle">Weather & Earth Science</span>
             </a>
-            <a href="https://amnh.org" target="_self" class="kiosk-btn btn-science">
+            <a href="https://www.amnh.org/explore/ology" target="_self" class="kiosk-btn btn-science">
                 AMNH OLogy
                 <span class="btn-subtitle">Museum History & Science</span>
             </a>
-            <a href="https://nationalgeographic.com" target="_self" class="kiosk-btn btn-science">
+            <a href="https://kids.nationalgeographic.com" target="_self" class="kiosk-btn btn-science">
                 Nat Geo Kids
                 <span class="btn-subtitle">Animals & Nature</span>
             </a>
@@ -173,7 +176,7 @@
     <div class="category-section">
         <div class="category-title coding-title">💻 Coding, Typing & Math</div>
         <div class="grid">
-            <a href="https://mit.edu" target="_self" class="kiosk-btn btn-coding">
+            <a href="https://scratch.mit.edu" target="_self" class="kiosk-btn btn-coding">
                 Scratch Coding
                 <span class="btn-subtitle">Create Games & Animation</span>
             </a>
@@ -184,6 +187,37 @@
             <a href="https://khanacademy.org" target="_self" class="kiosk-btn btn-coding">
                 Khan Academy
                 <span class="btn-subtitle">Math & Structured Lessons</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- 5. 🌟 CHECK THESE OUT TOO -->
+    <div class="category-section">
+        <div class="category-title more-title">🌟 Check These Out Too!</div>
+        <div class="grid">
+            <a href="https://www.youtube.com/@MarkRober?has_verified_parent=1" target="_self" class="kiosk-btn btn-more">
+                🚀 Mark Rober
+                <span class="btn-subtitle">Engineering & Physics</span>
+            </a>
+            <a href="https://www.youtube.com/@kurzgesagt?has_verified_parent=1" target="_self" class="kiosk-btn btn-more">
+                🌌 Kurzgesagt
+                <span class="btn-subtitle">Space & Biology</span>
+            </a>
+            <a href="https://www.youtube.com/@smartereveryday?has_verified_parent=1" target="_self" class="kiosk-btn btn-more">
+                ✈ SmarterEveryDay
+                <span class="btn-subtitle">Aerospace & Mechanics</span>
+            </a>
+            <a href="https://www.youtube.com/@veritasium?has_verified_parent=1" target="_self" class="kiosk-btn btn-more">
+                🤯 Veritasium
+                <span class="btn-subtitle">Counter-Intuitive Physics</span>
+            </a>
+            <a href="https://www.youtube.com/@ActionLab?has_verified_parent=1" target="_self" class="kiosk-btn btn-more">
+                🧪 The Action Lab
+                <span class="btn-subtitle">Material Science Experiments</span>
+            </a>
+            <a href="https://www.youtube.com/@KQEDDeepLook?has_verified_parent=1" target="_self" class="kiosk-btn btn-more">
+                🔬 Deep Look
+                <span class="btn-subtitle">Ultra-Macro Nature & Biology</span>
             </a>
         </div>
     </div>
