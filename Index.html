@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grandkids Learning Kiosk</title>
+    <style>
+        :root {
+            --bg-color: #f0f4f8;
+            --text-color: #1a202c;
+            --search-color: #4a5568;
+            --creative-color: #b7791f;
+            --science-color: #2b6cb0;
+            --coding-color: #2f855a;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2d3748;
+            margin-bottom: 30px;
+        }
+
+        .category-section {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid;
+        }
+
+        .search-title { border-color: var(--search-color); color: var(--search-color); }
+        .creative-title { border-color: var(--creative-color); color: var(--creative-color); }
+        .science-title { border-color: var(--science-color); color: var(--science-color); }
+        .coding-title { border-color: var(--coding-color); color: var(--coding-color); }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .kiosk-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100px;
+            padding: 15px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            font-size: 1.25rem;
+            font-weight: bold;
+            text-align: center;
+            transition: transform 0.1s ease, filter 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            touch-action: manipulation; 
+        }
+
+        .kiosk-btn:active {
+            transform: scale(0.95);
+            filter: brightness(0.9);
+        }
+
+        .btn-search { background-color: var(--search-color); }
+        .btn-creative { background-color: var(--creative-color); }
+        .btn-science { background-color: var(--science-color); }
+        .btn-coding { background-color: var(--coding-color); }
+
+        .btn-subtitle {
+            font-size: 0.85rem;
+            font-weight: normal;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Grandkids Discovery Station</h1>
+
+    <!-- 1. 🔍 SAFE SEARCH TOOLS -->
+    <div class="category-section">
+        <div class="category-title search-title">🔍 Safe Search Tools</div>
+        <div class="grid">
+            <a href="https://kidzsearch.com" target="_self" class="kiosk-btn btn-search">
+                KidzSearch
+                <span class="btn-subtitle">Safe Search Engine</span>
+            </a>
+            <a href="https://kiddle.co" target="_self" class="kiosk-btn btn-search">
+                Kiddle
+                <span class="btn-subtitle">Visual Search for Kids</span>
+            </a>
+            <a href="https://duckduckgo.com" target="_self" class="kiosk-btn btn-search">
+                DuckDuckGo
+                <span class="btn-subtitle">Private Web Search</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- 2. 🎨 CREATIVITY, VIDEOS & GAMES -->
+    <div class="category-section">
+        <div class="category-title creative-title">🎨 Creativity, Videos & Games</div>
+        <div class="grid">
+            <a href="https://youtube.com" target="_self" class="kiosk-btn btn-creative">
+                YouTube Science
+                <span class="btn-subtitle">Curated Science Video Feeds</span>
+            </a>
+            <a href="https://chromeexperiments.com" target="_self" class="kiosk-btn btn-creative">
+                Chrome Music Lab
+                <span class="btn-subtitle">Sound Wave Experiments</span>
+            </a>
+            <a href="https://pbskids.org" target="_self" class="kiosk-btn btn-creative">
+                PBS KIDS
+                <span class="btn-subtitle">Educational Games</span>
+            </a>
+            <a href="https://abcya.com" target="_self" class="kiosk-btn btn-creative">
+                ABCya! Games
+                <span class="btn-subtitle">Grade-Level Challenges</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- 3. 🧬 SCIENCE & EXPLORATION -->
+    <div class="category-section">
+        <div class="category-title science-title">🧬 Science & Exploration</div>
+        <div class="grid">
+            <a href="https://colorado.edu" target="_self" class="kiosk-btn btn-science">
+                PhET Simulations
+                <span class="btn-subtitle">Physics & Chemistry Labs</span>
+            </a>
+            <a href="https://stellarium-web.org" target="_self" class="kiosk-btn btn-science">
+                Stellarium Star Map
+                <span class="btn-subtitle">3D Space Planetarium</span>
+            </a>
+            <a href="https://nasa.gov" target="_self" class="kiosk-btn btn-science">
+                NASA Climate Kids
+                <span class="btn-subtitle">Weather & Earth Science</span>
+            </a>
+            <a href="https://amnh.org" target="_self" class="kiosk-btn btn-science">
+                AMNH OLogy
+                <span class="btn-subtitle">Museum History & Science</span>
+            </a>
+            <a href="https://nationalgeographic.com" target="_self" class="kiosk-btn btn-science">
+                Nat Geo Kids
+                <span class="btn-subtitle">Animals & Nature</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- 4. 💻 CODING, TYPING & MATH -->
+    <div class="category-section">
+        <div class="category-title coding-title">💻 Coding, Typing & Math</div>
+        <div class="grid">
+            <a href="https://mit.edu" target="_self" class="kiosk-btn btn-coding">
+                Scratch Coding
+                <span class="btn-subtitle">Create Games & Animation</span>
+            </a>
+            <a href="https://edclub.com" target="_self" class="kiosk-btn btn-coding">
+                EdClub
+                <span class="btn-subtitle">Typing Lessons</span>
+            </a>
+            <a href="https://khanacademy.org" target="_self" class="kiosk-btn btn-coding">
+                Khan Academy
+                <span class="btn-subtitle">Math & Structured Lessons</span>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
