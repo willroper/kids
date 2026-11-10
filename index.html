@@ -63,49 +63,176 @@
         }
 
         .kiosk-btn {
+            --c: var(--search-color);
+            position: relative;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 72px;
-            padding: 10px;
-            border-radius: 12px;
+            min-height: 84px;
+            padding: 12px;
+            border-radius: 14px;
             text-decoration: none;
             color: white;
-            font-size: 1rem;
+            font-size: 1.05rem;
             font-weight: bold;
             text-align: center;
-            transition: transform 0.1s ease, filter 0.2s ease;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            touch-action: manipulation; 
+            background: var(--c);
+            border: 3px solid transparent;
+            box-shadow: 0 4px 0 rgba(0,0,0,0.22), 0 6px 10px rgba(0,0,0,0.12);
+            transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease, border-color 0.18s ease;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .kiosk-btn:active {
-            transform: scale(0.95);
-            filter: brightness(0.9);
+        /* Light sweep across the button on rollover */
+        .kiosk-btn::before {
+            content: "";
+            position: absolute;
+            top: 0; left: -80%;
+            width: 50%; height: 100%;
+            background: linear-gradient(105deg, transparent, rgba(255,255,255,0.35), transparent);
+            transform: skewX(-20deg);
+            transition: left 0.5s ease;
+            pointer-events: none;
         }
-
-        .btn-search { background-color: var(--search-color); }
-        .btn-creative { background-color: var(--creative-color); }
-        .btn-science { background-color: var(--science-color); }
-        .btn-coding { background-color: var(--coding-color); }
-        .btn-more { background-color: var(--more-color); }
 
         .btn-subtitle {
-            font-size: 0.75rem;
+            font-size: 0.78rem;
             font-weight: normal;
             opacity: 0.9;
-            margin-top: 3px;
+            margin-top: 4px;
+            transition: opacity 0.18s ease, transform 0.18s ease;
+        }
+
+        .btn-search   { --c: var(--search-color); }
+        .btn-creative { --c: var(--creative-color); }
+        .btn-science  { --c: var(--science-color); }
+        .btn-coding   { --c: var(--coding-color); }
+        .btn-more     { --c: var(--more-color); }
+
+        /* Rollover (mouse) and keyboard focus */
+        @media (hover: hover) {
+            .kiosk-btn:hover {
+                transform: translateY(-4px) scale(1.04);
+                filter: brightness(1.12) saturate(1.1);
+                border-color: rgba(255,255,255,0.75);
+                box-shadow: 0 8px 0 rgba(0,0,0,0.2), 0 14px 22px rgba(0,0,0,0.25);
+            }
+            .kiosk-btn:hover::before { left: 130%; }
+            .kiosk-btn:hover .btn-subtitle { opacity: 1; transform: translateY(1px); }
+            .category-section:hover {
+                box-shadow: 0 10px 20px -5px rgba(0,0,0,0.15), 0 4px 6px -2px rgba(0,0,0,0.08);
+            }
+        }
+
+        .kiosk-btn:focus-visible {
+            outline: 4px solid #1a202c;
+            outline-offset: 3px;
+            transform: translateY(-4px) scale(1.04);
+        }
+
+        /* Pressed (works for touch and mouse) */
+        .kiosk-btn:active {
+            transform: translateY(2px) scale(0.96);
+            filter: brightness(0.9);
+            box-shadow: 0 1px 0 rgba(0,0,0,0.25);
+        }
+
+        .category-section { transition: box-shadow 0.25s ease; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .kiosk-btn, .kiosk-btn::before, .btn-subtitle, .category-section { transition: none; }
+        }
+
+        /* ---- Collapsible categories ---- */
+        .hint {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #4a5568;
+            margin: -15px 0 25px;
+        }
+
+        .search-title   { --c: var(--search-color); }
+        .creative-title { --c: var(--creative-color); }
+        .science-title  { --c: var(--science-color); }
+        .coding-title   { --c: var(--coding-color); }
+        .more-title     { --c: var(--more-color); }
+
+        details.category-section { padding: 12px; }
+
+        summary.category-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            min-height: 64px;
+            margin: 0;
+            padding: 10px 20px;
+            font-size: 1.5rem;
+            border: 3px solid var(--c);
+            border-radius: 12px;
+            color: var(--c);
+            background: white;
+            cursor: pointer;
+            list-style: none;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            transition: background-color 0.2s ease, color 0.2s ease, transform 0.18s ease, box-shadow 0.18s ease;
+        }
+        summary.category-title::-webkit-details-marker { display: none; }
+
+        /* Arrow that turns when the category opens */
+        summary.category-title::after {
+            content: "";
+            flex: none;
+            width: 14px; height: 14px;
+            border-right: 4px solid currentColor;
+            border-bottom: 4px solid currentColor;
+            transform: rotate(45deg);
+            transition: transform 0.25s ease;
+        }
+        details[open] > summary.category-title {
+            background: var(--c);
+            color: white;
+        }
+        details[open] > summary.category-title::after { transform: rotate(-135deg); }
+
+        @media (hover: hover) {
+            summary.category-title:hover {
+                background: var(--c);
+                color: white;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            }
+        }
+        summary.category-title:active { transform: scale(0.98); }
+        summary.category-title:focus-visible { outline: 4px solid #1a202c; outline-offset: 3px; }
+
+        details[open] > .grid {
+            margin-top: 15px;
+            animation: reveal 0.3s ease;
+        }
+        @keyframes reveal {
+            from { opacity: 0; transform: translateY(-8px); }
+            to   { opacity: 1; transform: none; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            summary.category-title, summary.category-title::after { transition: none; }
+            details[open] > .grid { animation: none; }
         }
     </style>
 </head>
 <body>
 
     <h1>Grandkids Discovery Station</h1>
+    <p class="hint">Point at or tap a topic to see what is inside</p>
 
     <!-- 1. 🔍 SAFE SEARCH TOOLS -->
-    <div class="category-section">
-        <div class="category-title search-title">🔍 Safe Search Tools</div>
+    <details class="category-section">
+        <summary class="category-title search-title">🔍 Safe Search Tools</summary>
         <div class="grid">
             <a href="https://kidzsearch.com" target="_self" class="kiosk-btn btn-search">
                 KidzSearch
@@ -120,11 +247,11 @@
                 <span class="btn-subtitle">Private Web Search</span>
             </a>
         </div>
-    </div>
+    </details>
 
     <!-- 2. 🎨 CREATIVITY, VIDEOS & GAMES -->
-    <div class="category-section">
-        <div class="category-title creative-title">🎨 Creativity, Videos & Games</div>
+    <details class="category-section">
+        <summary class="category-title creative-title">🎨 Creativity, Videos & Games</summary>
         <div class="grid">
             <a href="https://www.youtube.com/?has_verified_parent=1" target="_self" class="kiosk-btn btn-creative">
                 YouTube Science
@@ -143,11 +270,11 @@
                 <span class="btn-subtitle">Grade-Level Challenges</span>
             </a>
         </div>
-    </div>
+    </details>
 
     <!-- 3. 🧬 SCIENCE & EXPLORATION -->
-    <div class="category-section">
-        <div class="category-title science-title">🧬 Science & Exploration</div>
+    <details class="category-section">
+        <summary class="category-title science-title">🧬 Science & Exploration</summary>
         <div class="grid">
             <a href="https://phet.colorado.edu" target="_self" class="kiosk-btn btn-science">
                 PhET Simulations
@@ -170,11 +297,11 @@
                 <span class="btn-subtitle">Animals & Nature</span>
             </a>
         </div>
-    </div>
+    </details>
 
     <!-- 4. 💻 CODING, TYPING & MATH -->
-    <div class="category-section">
-        <div class="category-title coding-title">💻 Coding, Typing & Math</div>
+    <details class="category-section">
+        <summary class="category-title coding-title">💻 Coding, Typing & Math</summary>
         <div class="grid">
             <a href="https://scratch.mit.edu" target="_self" class="kiosk-btn btn-coding">
                 Scratch Coding
@@ -189,11 +316,11 @@
                 <span class="btn-subtitle">Math & Structured Lessons</span>
             </a>
         </div>
-    </div>
+    </details>
 
     <!-- 5. 🌟 CHECK THESE OUT TOO -->
-    <div class="category-section">
-        <div class="category-title more-title">🌟 Check These Out Too!</div>
+    <details class="category-section">
+        <summary class="category-title more-title">🌟 Check These Out Too!</summary>
         <div class="grid">
             <a href="https://www.youtube.com/@MarkRober?has_verified_parent=1" target="_self" class="kiosk-btn btn-more">
                 🚀 Mark Rober
@@ -220,7 +347,54 @@
                 <span class="btn-subtitle">Ultra-Macro Nature & Biology</span>
             </a>
         </div>
-    </div>
+    </details>
 
+    <script>
+        // Laptop: pointing at a topic opens it; moving away closes it.
+        // Click or tap: keeps it open until you click it again or open another.
+        (function () {
+            var sections = document.querySelectorAll('details.category-section');
+            var timers = new Map();
+            var pinned = new Set();
+
+            function openOnly(target) {
+                sections.forEach(function (d) {
+                    if (d !== target) { d.open = false; pinned.delete(d); }
+                });
+                target.open = true;
+            }
+
+            sections.forEach(function (d) {
+                var summary = d.querySelector('summary');
+
+                summary.addEventListener('pointerenter', function (e) {
+                    if (e.pointerType !== 'mouse') return;
+                    clearTimeout(timers.get(d));
+                    openOnly(d);
+                });
+
+                d.addEventListener('pointerenter', function (e) {
+                    if (e.pointerType === 'mouse') clearTimeout(timers.get(d));
+                });
+
+                d.addEventListener('pointerleave', function (e) {
+                    if (e.pointerType !== 'mouse' || pinned.has(d)) return;
+                    timers.set(d, setTimeout(function () { d.open = false; }, 300));
+                });
+
+                summary.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    clearTimeout(timers.get(d));
+                    if (d.open && pinned.has(d)) {
+                        pinned.delete(d);
+                        d.open = false;
+                    } else {
+                        openOnly(d);
+                        pinned.add(d);
+                    }
+                });
+            });
+        })();
+    </script>
 </body>
 </html>
