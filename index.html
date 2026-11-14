@@ -13,6 +13,7 @@
             --science-color: #2b6cb0;
             --coding-color: #2f855a;
             --more-color: #6b46c1;
+            --watch-color: #c53030;
         }
 
         body {
@@ -55,6 +56,7 @@
         .science-title { border-color: var(--science-color); color: var(--science-color); }
         .coding-title { border-color: var(--coding-color); color: var(--coding-color); }
         .more-title { border-color: var(--more-color); color: var(--more-color); }
+        .watch-title { border-color: var(--watch-color); color: var(--watch-color); }
 
         .grid {
             display: grid;
@@ -111,6 +113,7 @@
         .btn-science  { --c: var(--science-color); }
         .btn-coding   { --c: var(--coding-color); }
         .btn-more     { --c: var(--more-color); }
+        .btn-watch    { --c: var(--watch-color); }
 
         /* Rollover (mouse) and keyboard focus */
         @media (hover: hover) {
@@ -159,6 +162,7 @@
         .science-title  { --c: var(--science-color); }
         .coding-title   { --c: var(--coding-color); }
         .more-title     { --c: var(--more-color); }
+        .watch-title    { --c: var(--watch-color); }
 
         details.category-section { padding: 12px; }
 
@@ -249,14 +253,41 @@
         </div>
     </details>
 
+    <!-- 🎬 WATCH & LEARN -->
+    <details class="category-section">
+        <summary class="category-title watch-title">🎬 Watch &amp; Learn</summary>
+        <div class="grid">
+            <a href="https://plus.nasa.gov" target="_self" class="kiosk-btn btn-watch">
+                🚀 NASA+
+                <span class="btn-subtitle">Free Space Videos, No Ads</span>
+            </a>
+            <a href="https://pbskids.org/videos" target="_self" class="kiosk-btn btn-watch">
+                📺 PBS KIDS Videos
+                <span class="btn-subtitle">Science, Math & Stories</span>
+            </a>
+            <a href="https://www.si.edu/kids" target="_self" class="kiosk-btn btn-watch">
+                🏛 Smithsonian Kids
+                <span class="btn-subtitle">Videos, Games & Discovery</span>
+            </a>
+            <a href="https://www.youtube.com/@scishowkids" target="_self" class="kiosk-btn btn-watch">
+                🔬 SciShow Kids
+                <span class="btn-subtitle">Big Questions, Simple Answers</span>
+            </a>
+            <a href="https://www.youtube.com/@crashcoursekids" target="_self" class="kiosk-btn btn-watch">
+                🌍 Crash Course Kids
+                <span class="btn-subtitle">Science for Grades 3-5</span>
+            </a>
+            <a href="https://www.youtube.com/@TEDEd" target="_self" class="kiosk-btn btn-watch">
+                💡 TED-Ed
+                <span class="btn-subtitle">Short Animated Lessons</span>
+            </a>
+        </div>
+    </details>
+
     <!-- 2. 🎨 CREATIVITY, VIDEOS & GAMES -->
     <details class="category-section">
         <summary class="category-title creative-title">🎨 Creativity, Videos & Games</summary>
         <div class="grid">
-            <a href="https://www.youtube.com/?has_verified_parent=1" target="_self" class="kiosk-btn btn-creative">
-                YouTube Science
-                <span class="btn-subtitle">Curated Science Video Feeds</span>
-            </a>
             <a href="https://musiclab.chromeexperiments.com" target="_self" class="kiosk-btn btn-creative">
                 Chrome Music Lab
                 <span class="btn-subtitle">Sound Wave Experiments</span>
@@ -318,31 +349,23 @@
         </div>
     </details>
 
-    <!-- 5. 🌟 CHECK THESE OUT TOO -->
+    <!-- 5. 🧪 BIGGER KIDS VIDEOS -->
     <details class="category-section">
-        <summary class="category-title more-title">🌟 Check These Out Too!</summary>
+        <summary class="category-title more-title">🧪 Bigger Kids: Watch with a Grown-up</summary>
         <div class="grid">
-            <a href="https://www.youtube.com/@MarkRober?has_verified_parent=1" target="_self" class="kiosk-btn btn-more">
+            <a href="https://www.youtube.com/@MarkRober" target="_self" class="kiosk-btn btn-more">
                 🚀 Mark Rober
                 <span class="btn-subtitle">Engineering & Physics</span>
             </a>
-            <a href="https://www.youtube.com/@kurzgesagt?has_verified_parent=1" target="_self" class="kiosk-btn btn-more">
-                🌌 Kurzgesagt
-                <span class="btn-subtitle">Space & Biology</span>
-            </a>
-            <a href="https://www.youtube.com/@smartereveryday?has_verified_parent=1" target="_self" class="kiosk-btn btn-more">
+            <a href="https://www.youtube.com/@smartereveryday" target="_self" class="kiosk-btn btn-more">
                 ✈ SmarterEveryDay
                 <span class="btn-subtitle">Aerospace & Mechanics</span>
             </a>
-            <a href="https://www.youtube.com/@veritasium?has_verified_parent=1" target="_self" class="kiosk-btn btn-more">
-                🤯 Veritasium
-                <span class="btn-subtitle">Counter-Intuitive Physics</span>
-            </a>
-            <a href="https://www.youtube.com/@ActionLab?has_verified_parent=1" target="_self" class="kiosk-btn btn-more">
+            <a href="https://www.youtube.com/@ActionLab" target="_self" class="kiosk-btn btn-more">
                 🧪 The Action Lab
                 <span class="btn-subtitle">Material Science Experiments</span>
             </a>
-            <a href="https://www.youtube.com/@KQEDDeepLook?has_verified_parent=1" target="_self" class="kiosk-btn btn-more">
+            <a href="https://www.youtube.com/@KQEDDeepLook" target="_self" class="kiosk-btn btn-more">
                 🔬 Deep Look
                 <span class="btn-subtitle">Ultra-Macro Nature & Biology</span>
             </a>
